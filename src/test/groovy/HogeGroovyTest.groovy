@@ -9,27 +9,27 @@ class HogeGroovyTest {
 
     @Test
     public void 三ならFizz() {
-        assertThat(sut.fizzBuzz(3), is("Fizz"))
+        assertThat sut.fizzBuzz(3), is("Fizz")
     }
 
     @Test
     public void 三の倍数もFizz() {
-        assertThat(sut.fizzBuzz(12), is("Fizz"))
+        assertThat sut.fizzBuzz(12), is("Fizz")
     }
 
     @Test
     public void 五ならFizz() {
-        assertThat(sut.fizzBuzz(5), is("Buzz"))
+        assertThat sut.fizzBuzz(5), is("Buzz")
     }
 
     @Test
     public void 五の倍数もFizz() {
-        assertThat(sut.fizzBuzz(10), is("Buzz"))
+        assertThat sut.fizzBuzz(10), is("Buzz")
     }
 
     @Test
     public void 十五ならFizzBuzz() {
-        assertThat(sut.fizzBuzz(15), is("FizzBuzz"))
+        assertThat sut.fizzBuzz(15), is("FizzBuzz")
     }
 
     @Test
