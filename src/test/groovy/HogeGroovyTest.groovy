@@ -21,7 +21,7 @@ class HogeGroovyTest {
         @Rule
         public TestRule watcher = [starting: { println it.methodName }] as TestWatcher
 
-        HogeGroovy sut = new HogeGroovy()
+        HogeJava sut = new HogeJava()
 
         @Test
         public void 三ならFizz() {
@@ -56,7 +56,7 @@ class HogeGroovyTest {
 
     @RunWith(Theories)
     static class TheoriesTest {
-        HogeGroovy sut = new HogeGroovy()
+        HogeJava sut = new HogeJava()
 
         @DataPoints
         static Object[] params() {
