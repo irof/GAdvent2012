@@ -8,6 +8,7 @@ import org.junit.rules.TestRule
 import org.junit.rules.TestWatcher
 import org.junit.runner.RunWith
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import static org.hamcrest.CoreMatchers.is
 import static org.junit.Assert.assertThat
@@ -74,6 +75,29 @@ class HogeGroovyTest {
     static class HogeSpock extends Specification {
         def "Enclosedの中でSpockが使えるよー"() {
             expect: true
+        }
+
+        @Unroll
+        def "fizzBuzzへの入力値が #num の時は #res が返される"() {
+            def sut = new HogeJava()
+            expect: sut.fizzBuzz(num) == res
+            where:
+            num | res
+            1   | "1"
+            2   | "2"
+            3   | "Fizz"
+            4   | "4"
+            5   | "Buzz"
+            6   | "Fizz"
+            7   | "7"
+            8   | "8"
+            9   | "Fizz"
+            10  | "Buzz"
+            11  | "11"
+            12  | "Fizz"
+            13  | "13"
+            14  | "14"
+            15  | "FizzBuzz"
         }
     }
 }
