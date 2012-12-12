@@ -73,6 +73,10 @@ class HogeGroovyTest {
     }
 
     static class HogeSpock extends Specification {
+
+        @Rule
+        public TestRule watcher = [starting: { println it.methodName }] as TestWatcher
+
         def "Enclosedの中でSpockが使えるよー"() {
             expect: true
         }
