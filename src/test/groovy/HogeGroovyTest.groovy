@@ -7,6 +7,7 @@ import org.junit.experimental.theories.Theory
 import org.junit.rules.TestRule
 import org.junit.rules.TestWatcher
 import org.junit.runner.RunWith
+import spock.lang.Specification
 
 import static org.hamcrest.CoreMatchers.is
 import static org.junit.Assert.assertThat
@@ -67,6 +68,12 @@ class HogeGroovyTest {
         @Theory
         public void test(def param) {
             assert sut.fizzBuzz(param.key) == param.value
+        }
+    }
+
+    static class HogeSpock extends Specification {
+        def "Enclosedの中でSpockが使えるよー"() {
+            expect: true
         }
     }
 }
