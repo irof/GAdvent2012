@@ -3,7 +3,6 @@ import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.rules.TestRule
 import org.junit.rules.TestWatcher
-import org.junit.runner.Description
 import org.junit.runner.RunWith
 
 import static org.hamcrest.CoreMatchers.is
@@ -15,12 +14,7 @@ class HogeGroovyTest {
     static class JUnitTest {
 
         @Rule
-        public TestRule watcher = new TestWatcher() {
-            @Override
-            protected void starting(Description description) {
-                println description.methodName
-            }
-        }
+        public TestRule watcher = [starting: { println it.methodName }] as TestWatcher
 
         HogeGroovy sut = new HogeGroovy()
 
