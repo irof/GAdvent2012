@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 
+defaultTasks 'clean', 'test'
+
 repositories {
   mavenCentral()
   maven { url 'http://oss.sonatype.org/content/repositories/snapshots/' }
