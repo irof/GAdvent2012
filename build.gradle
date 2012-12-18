@@ -1,7 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
+buildscript {
+  apply from: 'https://github.com/valkolovos/gradle_cobertura/raw/master/repo/gradle_cobertura/gradle_cobertura/1.2.1/coberturainit.gradle'
+}
 
-defaultTasks 'clean', 'test'
+defaultTasks 'clean', 'cobertura'
 
 repositories {
   mavenCentral()
@@ -19,8 +22,10 @@ dependencies {
   testRuntime 'org.objenesis:objenesis:1.2'    // allows mocking of classes without default constructor (together with CGLIB)
 }
 
-// exclude EnclosedTestClass
-test.exclude '**/*$*'
+test {
+  jvmArgs '-XX:-UseSplitVerifier'
+  exclude '**/*$*'
+}
 
 task wrapper(type: Wrapper) {
   gradleVersion = '1.3'
