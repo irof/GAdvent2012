@@ -19,6 +19,9 @@ dependencies {
   testRuntime 'org.objenesis:objenesis:1.2'    // allows mocking of classes without default constructor (together with CGLIB)
 }
 
+// exclude EnclosedTestClass
+test.exclude '**/*$*'
+
 task wrapper(type: Wrapper) {
   gradleVersion = '1.3'
 }
